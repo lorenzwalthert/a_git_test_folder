@@ -4,7 +4,7 @@
 // if you select a code junk and use do/run, only the selected junk will be executed
 // there is a thing called review window. It's the history of commands and is selectable.
 // However, it looks as output is invisible.
-
+"hewnew2
 
 clear
 cd "/Users/lorenz/Documents/CORC/Stata" // set working derectory
