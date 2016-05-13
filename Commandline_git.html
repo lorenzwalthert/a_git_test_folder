@@ -132,9 +132,30 @@ cd # change directory
 cd .. # up the tree in the directory
 pwd # show working directory</code></pre>
 </div>
-<div id="set-up-a-git-repository" class="section level2">
-<h2>Set up a git repository</h2>
-<pre class="r"><code>git init </code></pre>
+<div id="basic-git" class="section level2">
+<h2>Basic git</h2>
+<pre class="r"><code>git init 
+git status # show the status 
+git add text1.txt # add textfile text1 to the stagging area
+git add -A # add all unstagged files in working directory to stagging area
+git add t* # add all files in the directory that start with t
+git commit -m &quot;hi this is a commit&quot; # commiting to current branch
+git log  # show the log / history of the git repository
+git checkout # dischard changes in stagging area.</code></pre>
+</div>
+<div id="working-with-branches" class="section level2">
+<h2>Working with branches</h2>
+<pre class="r"><code>git branch # show all branches (green star shows current branch)
+git branch -v # show all branches (green star shows current branch) and some additonal information
+
+git branch coffee # create a new branch &quot;coffee&quot;
+git branch -d coffee # delete the coffee branch</code></pre>
+</div>
+<div id="changing-branches" class="section level2">
+<h2>Changing branches</h2>
+<pre class="r"><code>git checkout # dischard changes in stagging area.
+git checkout coffee # switch to the coffee branch
+git checkout -b old-project-state 0ad5a7a6 # create a new branch that is the current branch state at commit 0ad5a7a6 </code></pre>
 </div>
 
 
