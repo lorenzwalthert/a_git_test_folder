@@ -1,0 +1,25 @@
+---
+title: "Using git"
+author: "Lorenz Walthert"
+date: "13. Mai 2016"
+output: html_document
+---
+
+Some basic commands
+
+```{r, global_options,include=F}
+knitr::opts_chunk$set(eval = F) # disable eval
+```
+## Basic navigation
+```{r}
+ls # show all elements in directory
+cd # change directory
+cd .. # up the tree in the directory
+pwd # show working directory
+```
+
+##Set up a git repository
+```{r}
+git init 
+
+```
