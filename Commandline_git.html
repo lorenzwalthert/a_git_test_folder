@@ -132,16 +132,22 @@ cd # change directory
 cd .. # up the tree in the directory
 pwd # show working directory</code></pre>
 </div>
-<div id="basic-git" class="section level2">
-<h2>Basic git</h2>
+<div id="basics-stagging-area" class="section level2">
+<h2>Basics stagging area</h2>
 <pre class="r"><code>git init 
 git status # show the status 
 git add text1.txt # add textfile text1 to the stagging area
+git reset HEAD text1.txt # remove textfile text1 to the stagging area
 git add -A # add all unstagged files in working directory to stagging area
-git add t* # add all files in the directory that start with t
-git commit -m &quot;hi this is a commit&quot; # commiting to current branch
+git add t* # add all files in the directory that start with t</code></pre>
+</div>
+<div id="basics-committing" class="section level2">
+<h2>Basics committing</h2>
+<pre class="r"><code>git commit -m &quot;hi this is a commit&quot; # commiting to current branch
 git log  # show the log / history of the git repository
-git checkout # dischard changes in stagging area.</code></pre>
+git checkout -- text1.txt # dischard local changes for text1.txt and set local back to HEAD (the latest commit)
+git commit --amend -m &quot;this is actually the correct message&quot; # change the message for the latest commit
+git commit --amend -m &quot;new message new file&quot; # works only if you added files to the stagging area. Adds these files to the latest commit and chnages the message.</code></pre>
 </div>
 <div id="working-with-branches" class="section level2">
 <h2>Working with branches</h2>
@@ -156,6 +162,14 @@ git branch -d coffee # delete the coffee branch</code></pre>
 <pre class="r"><code>git checkout # dischard changes in stagging area.
 git checkout coffee # switch to the coffee branch
 git checkout -b old-project-state 0ad5a7a6 # create a new branch called old-roject-state that is the current branch state at commit 0ad5a7a6 </code></pre>
+</div>
+<div id="undo-things" class="section level2">
+<h2>Undo things</h2>
+<p><em>Revert and reset</em></p>
+<p>Use <code>revert</code> to create a new downstream commit that is equal to a previous (upstram) commit. You are NOT destroying anything.</p>
+<pre class="r"><code>git revert 123keri5 # create a new commit equal to the hash of a previous commit.</code></pre>
+<p>Use <code>reset</code> to go back to a previous commit and delete all commits between the latest commit and the one you want to go back to.</p>
+<pre class="r"><code>git reset --hard 123keri5 # create a new commit equal to the hash of a previous commit.</code></pre>
 </div>
 
 

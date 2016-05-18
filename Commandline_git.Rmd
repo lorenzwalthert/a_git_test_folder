@@ -18,16 +18,22 @@ cd .. # up the tree in the directory
 pwd # show working directory
 ```
 
-## Basic git
+## Basics stagging area
 ```{r}
 git init 
 git status # show the status 
 git add text1.txt # add textfile text1 to the stagging area
+git reset HEAD text1.txt # remove textfile text1 to the stagging area
 git add -A # add all unstagged files in working directory to stagging area
 git add t* # add all files in the directory that start with t
+```
+## Basics committing
+```{r}
 git commit -m "hi this is a commit" # commiting to current branch
 git log  # show the log / history of the git repository
-git checkout # dischard changes in stagging area.
+git checkout -- text1.txt # dischard local changes for text1.txt and set local back to HEAD (the latest commit)
+git commit --amend -m "this is actually the correct message" # change the message for the latest commit
+git commit --amend -m "new message new file" # works only if you added files to the stagging area. Adds these files to the latest commit and chnages the message.
 ```
 ## Working with branches
 ```{r}
@@ -42,6 +48,15 @@ git branch -d coffee # delete the coffee branch
 git checkout # dischard changes in stagging area.
 git checkout coffee # switch to the coffee branch
 git checkout -b old-project-state 0ad5a7a6 # create a new branch called old-roject-state that is the current branch state at commit 0ad5a7a6 
+```
+## Undo things
+*Revert and reset*
 
-
+Use `revert` to create a new downstream commit that is equal to a previous (upstram) commit. You are NOT destroying anything.
+```{r}
+git revert 123keri5 # create a new commit equal to the hash of a previous commit.
+```
+Use `reset` to go back to a previous commit and delete all commits between the latest commit and the one you want to go back to.
+```{r}
+git reset --hard 123keri5 # create a new commit equal to the hash of a previous commit.
 ```
