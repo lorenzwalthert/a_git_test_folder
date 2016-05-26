@@ -125,12 +125,60 @@ $(document).ready(function () {
 
 
 <p>Some basic commands</p>
-<div id="basic-navigation" class="section level2">
-<h2>Basic navigation</h2>
-<pre class="r"><code>ls # show all elements in directory
-cd # change directory
+<div id="basic-navigation---commandline-101" class="section level2">
+<h2>Basic navigation - Commandline 101</h2>
+<pre class="r"><code>help # some basic information
+
+ls # show all elements in directory
+ls -la # structure the content a bit more
+cd /Users # change directory to /Users
+cd Program # change the directory relative to the current directory
 cd .. # up the tree in the directory
-pwd # show working directory</code></pre>
+pwd # show working directory
+
+
+rm testfile.txt # remove a file
+rm -r testfolder # -r for recursive for removing folders
+
+mv testfile.txt subolder_x/movedtestfile.txt # move a file to a subfolder_x and rename it
+cp testfile.txt subolder_x/movedtestfile.txt # copy the file instead of moving it
+
+
+mkdir hithere # create new folder called &quot;hithere&quot;
+
+cat testfile.txt # display content
+head testfile.txt # display 10 first line
+tail testfile.txt # display last
+
+grep &quot;^df&quot; *.do # search for a file starting with df among all files with a .do extension and list them.</code></pre>
+</div>
+<div id="interactive-usage" class="section level2">
+<h2>Interactive usage</h2>
+<pre class="r"><code># e.g. after
+git diff --help # displaying the git diff help file
+# you may press
+SPACE # to get to the next page
+b # to go one page back
+q # to get to the next page
+
+ctrl+a # get to the beginning of a code line 
+ctrl+f # get to the next letter in the code line
+ctrl+b # get to a letter back in the code line
+ctrl+e # get to the end of a code line </code></pre>
+</div>
+<div id="auto-completion" class="section level2">
+<h2>auto completion</h2>
+<p><strong>[TAB]</strong></p>
+<pre class="r"><code>[TAB] #will autocomplete what you write if there is an object that matches up. 
+#instead of typing
+cd directory1/anotherdirectory 
+# you might want to type 
+cd di[TAB]/an[TAB] </code></pre>
+<p><strong>*</strong></p>
+<pre class="r"><code>#you might want to use auto completion with the star (*).
+git add self* # instead of
+git add self_training.ado
+# if there are multiple matching objects they are all contained in the command</code></pre>
 </div>
 <div id="basics-stagging-area" class="section level2">
 <h2>Basics stagging area</h2>
@@ -170,6 +218,12 @@ git checkout -b old-project-state 0ad5a7a6 # create a new branch called old-roje
 <pre class="r"><code>git revert 123keri5 # create a new commit equal to the hash of a previous commit.</code></pre>
 <p>Use <code>reset</code> to go back to a previous commit and delete all commits between the latest commit and the one you want to go back to.</p>
 <pre class="r"><code>git reset --hard 123keri5 # create a new commit equal to the hash of a previous commit.</code></pre>
+</div>
+<div id="inspecting-changes" class="section level2">
+<h2>Inspecting changes</h2>
+<pre class="r"><code>git diff # inspect differences between HEAD and local file (= inspect unstagged changes).
+git diff master..branch1 -- text1.txt # inspect all the differences between two branches (master and branches).
+git diff master..branch1 -- text1.txt # inspect the differences between two branches (master and branch1) for a specific file</code></pre>
 </div>
 
 

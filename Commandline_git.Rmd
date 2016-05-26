@@ -10,12 +10,68 @@ Some basic commands
 ```{r, global_options,include=F}
 knitr::opts_chunk$set(eval = F) # disable eval
 ```
-## Basic navigation
+## Basic navigation - Commandline 101
 ```{r}
+
+help # some basic information
+
 ls # show all elements in directory
-cd # change directory
+ls -la # structure the content a bit more
+cd /Users # change directory to /Users
+cd Program # change the directory relative to the current directory
 cd .. # up the tree in the directory
 pwd # show working directory
+
+
+rm testfile.txt # remove a file
+rm -r testfolder # -r for recursive for removing folders
+
+mv testfile.txt subolder_x/movedtestfile.txt # move a file to a subfolder_x and rename it
+cp testfile.txt subolder_x/movedtestfile.txt # copy the file instead of moving it
+
+
+mkdir hithere # create new folder called "hithere"
+
+cat testfile.txt # display content
+head testfile.txt # display 10 first line
+tail testfile.txt # display last
+
+grep "^df" *.do # search for a file starting with df among all files with a .do extension and list them.
+```
+## Interactive usage 
+```{r}
+# e.g. after
+git diff --help # displaying the git diff help file
+# you may press
+SPACE # to get to the next page
+b # to go one page back
+q # to get to the next page
+
+ctrl+a # get to the beginning of a code line 
+ctrl+f # get to the next letter in the code line
+ctrl+b # get to a letter back in the code line
+ctrl+e # get to the end of a code line 
+
+
+
+```
+## auto completion
+**[TAB]**
+```{r}
+[TAB] #will autocomplete what you write if there is an object that matches up. 
+#instead of typing
+cd directory1/anotherdirectory 
+# you might want to type 
+cd di[TAB]/an[TAB] 
+```
+**\***
+```{r}
+#you might want to use auto completion with the star (*).
+git add self* # instead of
+git add self_training.ado
+# if there are multiple matching objects they are all contained in the command
+
+
 ```
 
 ## Basics stagging area
@@ -60,3 +116,10 @@ Use `reset` to go back to a previous commit and delete all commits between the l
 ```{r}
 git reset --hard 123keri5 # create a new commit equal to the hash of a previous commit.
 ```
+
+
+## Inspecting changes
+```{r}
+git diff # inspect differences between HEAD and local file (= inspect unstagged changes).
+git diff master..branch1 -- text1.txt # inspect all the differences between two branches (master and branches).
+git diff master..branch1 -- text1.txt # inspect the differences between two branches (master and branch1) for a specific file
