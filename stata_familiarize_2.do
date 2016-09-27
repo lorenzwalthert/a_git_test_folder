@@ -3,5 +3,5 @@
 
 // hihi
 
-// another hi to a friend
+// another hi to a friend. Is it a friend?
 
